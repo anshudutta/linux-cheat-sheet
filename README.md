@@ -1,4 +1,8 @@
 # Linux Cheat Sheet
+## Help
+```
+man <command>
+```
 ## File System
 * Navigation
 ```bash
@@ -39,4 +43,17 @@ rm somefire
 * Move a file
 ```bash
 mv /path/to/source/somefile /path/to/dest/
+```
+* Read a file
+```bash
+cat somefile
+```
+* Read top of file
+```bash
+head -n 10 somefile
+```
+* Read bottom of file
+```bash
+# Follow the file for changes
+tail -f somefile
 ```
