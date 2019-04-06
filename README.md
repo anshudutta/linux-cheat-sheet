@@ -10,10 +10,11 @@ man <command>
 	+ stderr (2)
 + Input Redirection
 <b> prog1 < prog2 </b>
-+  Output redirections -
-* <b> prog1 > progr2 </b>
-* <b>prog1 >> progr2 </b>
-	+ echo somethime text to file (overwrites the file each time command is executed)
+
++  Output redirections
+<b> prog1 > progr2 </b>
+<b>prog1 >> progr2 </b>
+	echo somethime text to file (overwrites the file each time command is executed)
 	```bash
 	echo "some text" 1>somefile
 	```
@@ -21,15 +22,36 @@ man <command>
 	```bash
 	echo "some text" > somefile
 	```
-	+ append file
+	append file
 	```bash
 	echo "some other text" >>somefile
 	```
 + Pipes - Channel Output of one command to input another command
-	+ <b>prog1 | prog 2</b>
-	+ ```bash
+	<b>prog1 | prog 2 | prog 3</b>
+	```bash
 	ps aux | grep search | less
 	```
++ && operator
+	<b>prog1 && prog2</b>
+	```bash
+	ls -la && echo "success"
+	```
++ grep
+<b>prog1 | grep searchterm</b>
+```bash
+# search in the file
+cat somefile | grep searchterm
+# or
+grep searchterm somefile
+# search file with some content
+grep searchterm ./*
+# show unique filenames with search term
+grep searchterm ./* | uniq | cut -d: f1
+```
++ sort
+```bash
+ps aux | sort
+```
 
 ## File System
 * Navigation
