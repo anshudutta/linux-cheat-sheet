@@ -47,6 +47,10 @@ rm somefire
 ```bash
 mv /path/to/source/somefile /path/to/dest/
 ```
+* Rename a file
+```bash
+mv /path/to/sourec/file /path/to/dest/newname
+```
 * Copy a file
 ```bash
 cp /path/to/source /path/to/dest
