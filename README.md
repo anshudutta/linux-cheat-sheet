@@ -3,6 +3,34 @@
 ```
 man <command>
 ```
+## Shell
++ Linux process has 3 channels
+	+ stdin (0)
+	+ stdout (1)
+	+ stderr (2)
++ Input Redirection
+<b> prog1 < prog2 </b>
++  Output redirections -
+* <b> prog1 > progr2 </b>
+* <b>prog1 >> progr2 </b>
+	+ echo somethime text to file (overwrites the file each time command is executed)
+	```bash
+	echo "some text" 1>somefile
+	```
+	OR
+	```bash
+	echo "some text" > somefile
+	```
+	+ append file
+	```bash
+	echo "some other text" >>somefile
+	```
++ Pipes - Channel Output of one command to input another command
+	+ <b>prog1 | prog 2</b>
+	+ ```bash
+	ps aux | grep search | less
+	```
+
 ## File System
 * Navigation
 ```bash
@@ -111,6 +139,12 @@ w
 * Show current processes
 ```bash
 top
+```
+* Show current process
+```bash
+ps aux
+# with pagination
+ps aux | less
 ```
 * Show current network usage
 ```bash
