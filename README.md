@@ -13,14 +13,17 @@ cd /
 cd ~
 # Print path
 pwd
+# . represents current directory
+# Move one level up
+cd ..
 ```
 * List a directory
 ```bash
 ls
 # List vertically
 ls -l
-# List all
-ls -la
+# List Long, a = all, h = human readable
+ls -lah
 # List any directory
 ls /abs/path/dir
 ```
@@ -53,6 +56,10 @@ cp /path/to/source ./file
 * Read a file
 ```bash
 cat somefile
+```
+* Read a multiple files / concatenate
+```bash
+cat somefile someotherfile
 ```
 * Read top of file
 ```bash
