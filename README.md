@@ -52,7 +52,26 @@ grep searchterm ./* | uniq | cut -d: f1
 ```bash
 ps aux | sort
 ```
-
+## Package Manager
+### Ubuntu
+```bash
+# updates the list of available packages and their versions, w/o installing
+sudo apt-get update
+#  actually installs newer versions of the packages you have
+sudo apt-get upgrade -y
+# search for a package
+apt-cache search tmux
+# install
+sudo apt-get install prog1 prog2 -y
+# install w/o recommendation
+sudo apt-get install prog1 prog2 --no-install-recommends
+# uninstall
+sudo apt-get remove prog
+# browse package manager list source
+cat /etc/apt/sources.list
+# add a new repository to your package manager
+sudo add-apt-repository ppa:libreoffice/ppa
+```
 ## File System
 * Navigation
 ```bash
