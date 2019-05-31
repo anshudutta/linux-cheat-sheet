@@ -14,16 +14,13 @@ man <command>
 +  Output redirections
 <b> prog1 > progr2 </b>
 <b>prog1 >> progr2 </b>
-	echo somethime text to file (overwrites the file each time command is executed)
+	
 	```bash
+	# echo somethime text to file (overwrites the file each time command is executed)
 	echo "some text" 1>somefile
-	```
-	OR
-	```bash
+	# OR
 	echo "some text" > somefile
-	```
-	append file
-	```bash
+	# create or append existing file
 	echo "some other text" >>somefile
 	```
 + Pipes - Channel Output of one command to input another command
