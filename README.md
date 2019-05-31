@@ -86,7 +86,7 @@ pwd
 # Move one level up
 cd ..
 ```
-* List a directory
+* Directory
 ```bash
 ls
 # List vertically
@@ -95,60 +95,37 @@ ls -l
 ls -lah
 # List any directory
 ls /abs/path/dir
-```
-* Create a directory
-```bash
+# create a directort
 mkdir somedir
-```
-* Delete a directory
-```bash
+# delete recurssively
 rm -r somedir
 ```
-* Create a file
+
+* File
 ```bash
+# create a file
 touch somefile
-```
-* Delete a file
-```bash
+# delete a file
 rm somefire
-```
-* Move a file
-```bash
+# rename / move a file
 mv /path/to/source/somefile /path/to/dest/
-```
-* Rename a file
-```bash
-mv /path/to/sourec/file /path/to/dest/newname
-```
-* Copy a file
-```bash
+# copy a file
 cp /path/to/source /path/to/dest
 # to current directory
 cp /path/to/source ./file
-```
-* Read a file
-```bash
+# read a file
 cat somefile
-```
-* Read a multiple files / concatenate
-```bash
+# read / concat multiple files
 cat somefile someotherfile
-```
-* Read top of file
-```bash
+# read top of file
 head -n 10 somefile
-```
-* Read bottom of file
-```bash
-# Follow the file for changes
+# read bottom of file
 tail -f somefile
+#  zip a file
+
+# unzip a file
 ```
-* Zip a file
-```bash
-```
-* Unzip a file
-```bash
-```
+
 ## File editor
 ### Vim --> vi improved (modal editor)
 + modes
@@ -175,20 +152,13 @@ tail -f somefile
 ## Sysadmin
 * who is using?
 ```bash
+# who is using?
 w
-```
-* Show current processes
-```bash
+# Show current processes
 top
-```
-* Show current process
-```bash
 ps aux
 # with pagination
 ps aux | less
-```
-* Show current network usage
-```bash
-# tcp, udp, number
+# show current network usage - tcp, udp, number
 sudo netstat - tupln
 ```
