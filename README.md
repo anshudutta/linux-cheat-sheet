@@ -150,7 +150,6 @@ tail -f somefile
 		+ ask confirm ---> <b>:%s/searchterm/replaceterm/gc</b>
 	
 ## Sysadmin
-* who is using?
 ```bash
 # who is using?
 w
