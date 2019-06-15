@@ -175,10 +175,9 @@ $ ssh -i /path/to/private/key user@ipaddress
 $ ssh user@ipaddress
 ```
 ### Networking
-yy
 Object			Abbreviated form		Purpose
 -------			----------------		--------
-link			l				Network device.
+link			l				Network device
 ----------------------------------------------------------------------------------------------------------
 address			a
 			addr				Protocol (IP or IPv6) address on a device.
