@@ -175,6 +175,8 @@ $ ssh -i /path/to/private/key user@ipaddress
 $ ssh user@ipaddress
 ```
 ### Networking
+
+```
 Object			Abbreviated form		Purpose
 -------			----------------		--------
 link			l				Network device
@@ -200,6 +202,7 @@ tunnel			t				Tunnel over IP.
 ----------------------------------------------------------------------------------------------------------
 xfrm			x				Framework for IPsec protocol.
 ----------------------------------------------------------------------------------------------------------
+```
 
 #### ip address
 
