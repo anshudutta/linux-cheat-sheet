@@ -162,20 +162,85 @@ ps aux | less
 sudo netstat - tupln
 ```
 ### ssh
+```bash
+# generate ssh key pair
+$ ssh-keygen -C description@mail.com
+# add private key to known hosts
+$ ssh-add /path/to/private/key
+# add public key to authorozed hosts
+$ echo $( cat /home/core/.ssh/id_rsa.pub) >> ~/.ssh/authorized_keys
+# ssh specifying a key pair
+$ ssh -i /path/to/private/key user@ipaddress 
+# usin
+```
+### Networking
+yy
+Object			Abbreviated form		Purpose
+-------			----------------		--------
+link			l				Network device.
+----------------------------------------------------------------------------------------------------------
+address			a
+			addr				Protocol (IP or IPv6) address on a device.
+----------------------------------------------------------------------------------------------------------		
+addrlabel		addrl				Label configuration for protocol address selection.
+----------------------------------------------------------------------------------------------------------
+neighbour		n
+			neigh				ARP or NDISC cache entry.
+----------------------------------------------------------------------------------------------------------		
+route			r				Routing table entry.
+----------------------------------------------------------------------------------------------------------
+rule			ru				Rule in routing policy database.
+----------------------------------------------------------------------------------------------------------
+maddress		m
+			maddr				Multicast address.
+----------------------------------------------------------------------------------------------------------		
+mroute			mr				Multicast routing cache entry.
+----------------------------------------------------------------------------------------------------------
+tunnel			t				Tunnel over IP.
+----------------------------------------------------------------------------------------------------------
+xfrm			x				Framework for IPsec protocol.
+----------------------------------------------------------------------------------------------------------
+
+#### ip address
+
+```bash
+# list network details
+$ ip addr show
+# assign ip address, dev --> device
+$ ip addr add 192.168.50.5 dev eth1
+# remove an ip address
+$ ip addr del 192.168.50.5/24 dev eth1
+# enable a network interface
+$ ip link set eth1 up
+# disable a network interface
+$ ip link set eth1 down
+```
+#### route tables
+
+```bash
+# show route tables
+$ ip route show
+# add static route
+$ ip route add 10.10.20.0/24 via 192.168.50.100 dev eth0
+# remove static route
+$ ip route del 10.10.20.0/24
+# add default gateway
+$ ip route add default via 192.168.50.100
+```
 
 ### DNS
 ```bash
 # modify host file
-echo "xxx.xxx.xxx.xx server-name" >> /etc/hosts
+$ echo "xxx.xxx.xxx.xx server-name" >> /etc/hosts
 # view dns server settings
-cat /etc/resolv.conf
+$ cat /etc/resolv.conf
 # set up dns
-echo "nameserver xxx.xxx.xxx.xxx" >> /etc/resolv.conf
-echo "nameserver 8.8.8.8" >> /etc/resolv.conf
+$ echo "nameserver xxx.xxx.xxx.xxx" >> /etc/resolv.conf
+$ echo "nameserver 8.8.8.8" >> /etc/resolv.conf
 # debug dns
-nslookup www.google.com
+$ nslookup www.google.com
 # nslookup using a specific name server
-nslookup example.com ns1.nsexample.com
+$ nslookup example.com ns1.nsexample.com
 # nslookup using type
-nslookup -type=soa example.com
+$ nslookup -type=soa example.com
 ```
