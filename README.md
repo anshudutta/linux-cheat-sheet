@@ -204,13 +204,25 @@ xfrm		x			Framework for IPsec protocol.
 ----------------------------------------------------------------------------------------------
 ```
 
-#### ip address
+#### Link
+
+```bash
+# view network interfaces on host
+$ ip link
+# set up a network device
+$ ip link set eth1 up
+# down a network device
+$ ip link set eth1 down
+```
+#### Ip address
 
 ```bash
 # list network details
 $ ip addr show
+# show for a particular interface
+$ ip addr show dev eth0
 # assign ip address, dev --> device
-$ ip addr add 192.168.50.5 dev eth1
+$ ip addr add 192.168.50.5/24 dev eth1
 # remove an ip address
 $ ip addr del 192.168.50.5/24 dev eth1
 # enable a network interface
@@ -218,11 +230,13 @@ $ ip link set eth1 up
 # disable a network interface
 $ ip link set eth1 down
 ```
-#### route tables
+#### Route tables
 
 ```bash
 # show route tables
 $ ip route show
+# or
+$ route -n
 # add static route
 $ ip route add 10.10.20.0/24 via 192.168.50.100 dev eth0
 # remove static route
