@@ -172,4 +172,10 @@ cat /etc/resolv.conf
 # set up dns
 echo "nameserver xxx.xxx.xxx.xxx" >> /etc/resolv.conf
 echo "nameserver 8.8.8.8" >> /etc/resolv.conf
+# debug dns
+nslookup www.google.com
+# nslookup using a specific name server
+nslookup example.com ns1.nsexample.com
+# nslookup using type
+nslookup -type=soa example.com
 ```
