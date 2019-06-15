@@ -147,9 +147,12 @@ tail -f somefile
 		+ ask confirm ---> <b>:%s/searchterm/replaceterm/gc</b>
 	
 ## Sysadmin
+
+### Basic
 ```bash
 # who is using?
 w
+whoami
 # Show current processes
 top
 ps aux
@@ -157,4 +160,16 @@ ps aux
 ps aux | less
 # show current network usage - tcp, udp, number
 sudo netstat - tupln
+```
+### ssh
+
+### DNS
+```bash
+# modify host file
+echo "xxx.xxx.xxx.xx server-name" >> /etc/hosts
+# view dns server settings
+cat /etc/resolv.conf
+# set up dns
+echo "nameserver xxx.xxx.xxx.xxx" >> /etc/resolv.conf
+echo "nameserver 8.8.8.8" >> /etc/resolv.conf
 ```
