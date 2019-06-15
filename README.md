@@ -171,7 +171,8 @@ $ ssh-add /path/to/private/key
 $ echo $( cat /home/core/.ssh/id_rsa.pub) >> ~/.ssh/authorized_keys
 # ssh specifying a key pair
 $ ssh -i /path/to/private/key user@ipaddress 
-# usin
+# using username 
+$ ssh user@ipaddress
 ```
 ### Networking
 yy
