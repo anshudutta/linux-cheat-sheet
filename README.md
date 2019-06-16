@@ -245,7 +245,7 @@ $ ip route del 10.10.20.0/24
 $ ip route add default via 192.168.50.100
 ```
 
-### DNS
+#### DNS
 ```bash
 # modify host file
 $ echo "xxx.xxx.xxx.xx server-name" >> /etc/hosts
@@ -260,4 +260,31 @@ $ nslookup www.google.com
 $ nslookup example.com ns1.nsexample.com
 # nslookup using type
 $ nslookup -type=soa example.com
+```
+#### namespaces
+```bash
+# list all namespaces
+$ ip netns list
+# add a new namespace, creates a network isolation
+$ ip netns add red
+# remove a namespace
+$ ip netns delete red
+```
+#### Setting up bridge network
+
+```bash
+# setup a bridge network
+$ ip link add v-net-0 type bridge
+# list to show it
+$ ip link 
+# bring the interface up
+$ ip link set dev v-net-0 up
+# create two namespaces red, blue
+$ ip netns add red
+$ ip netns add blue
+# create two virtual interfaces and connect red namespace to bridge 
+$ ip link add veth-red type veth peer name veth-red-br
+# create two virtual interfaces and connect blue namespace to bridge 
+$ ip link add veth-blue type veth peer name veth-blue-br
+
 ```
