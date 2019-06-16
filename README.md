@@ -269,22 +269,65 @@ $ ip netns list
 $ ip netns add red
 # remove a namespace
 $ ip netns delete red
+# ping from a namespace
+$ ip netns exec red ping xxx.xxx.xxx.xxx
+# show route
+$ ip netns exec red route
+# arp
+$ ip netns exec red arp
+$ ip netns exec blue arp
 ```
 #### Setting up bridge network
 
+* Create two namespaces to setup network isolation
 ```bash
-# setup a bridge network
-$ ip link add v-net-0 type bridge
-# list to show it
-$ ip link 
-# bring the interface up
-$ ip link set dev v-net-0 up
 # create two namespaces red, blue
 $ ip netns add red
 $ ip netns add blue
-# create two virtual interfaces and connect red namespace to bridge 
+# show
+$ ip link
+$ ip netns exec red ip link
+$ ip netns exec blue ip link
+```
+* Setup a bridge network
+*Interface for the host and switch to the namespaces
+```bash
+# setup a bridge network
+$ ip link add v-net-0 type bridge
+# bring the interface up
+$ ip link set dev v-net-0 up
+# assign ip address to the bridge
+$ ip addr add 192.168.15.5/24 dev v-net-0
+```
+* Create virtual network interfaces
+```bash
+# create two virtual cables
 $ ip link add veth-red type veth peer name veth-red-br
-# create two virtual interfaces and connect blue namespace to bridge 
 $ ip link add veth-blue type veth peer name veth-blue-br
+```
+* Attach the virtual interfaces and assign ip address
 
+- For red network
+```bash
+# attach virtual cables to red host and bridge
+$ ip link set veth-red netns red
+$ ip link set veth-red-br master v-net-0
+# assing ip address
+$ ip -n red addr add 192.168.15.1 dev veth-red
+# turn the device up
+$ ip -n red link set veth-red up
+```
+- For blue network
+```bash
+# attach virtual cables to blue host and bridge
+$ ip link set veth-blue netns blue
+$ ip link set veth-blue-br master v-net-0
+# assing ip address
+$ ip -n blue addr add 192.168.15.2 dev veth-blue
+# turn the device up
+$ ip -n blue link set veth-blue up
+```
+- Add NAT
+```bash
+iptables -t nat POSTROUTING -s 192.168.15.0/24 -j MASQUERADE
 ```
