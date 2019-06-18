@@ -278,6 +278,7 @@ $ ip netns exec red arp
 $ ip netns exec blue arp
 ```
 #### Setting up bridge network
+Refer - https://ops.tips/blog/using-network-namespaces-and-bridge-to-isolate-servers/
 
 * Create two namespaces to setup network isolation
 ```bash
@@ -333,7 +334,7 @@ $ ip link set dev veth-blue-br up
 ```bash
 iptables -t nat POSTROUTING -s 192.168.15.0/24 -j MASQUERADE
 ```
-- Add Default gateway
+- Add Default gateway (set default gateway to the ip address of the bridge)
 ```bash
 ip netns exec red ip route add default via 192.168.15.5
 ip netns exec blue ip route add default via 192.168.15.5
