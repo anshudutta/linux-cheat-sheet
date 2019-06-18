@@ -296,8 +296,8 @@ $ ip netns exec blue ip link
 $ ip link add v-net-0 type bridge
 # bring the interface up
 $ ip link set dev v-net-0 up
-# assign ip address to the bridge
-$ ip addr add 192.168.15.5/24 dev v-net-0
+# assign ip address to the bridge and set broadcast address
+$ ip addr add 192.168.15.5/24 brd + dev v-net-0
 ```
 * Create virtual network interfaces
 ```bash
@@ -310,12 +310,13 @@ $ ip link add veth-blue type veth peer name veth-blue-br
 - For red network
 ```bash
 # attach virtual cables to red host and bridge
-$ ip link set veth-red netns red
-$ ip link set veth-red-br master v-net-0
+$ ip link set dev veth-red netns red
+$ ip link set dev veth-red-br master v-net-0
 # assing ip address
 $ ip -n red addr add 192.168.15.1 dev veth-red
 # turn the device up
-$ ip -n red link set veth-red up
+$ ip -n red link set dev veth-red up
+$ ip link set dev veth-red-br up
 ```
 - For blue network
 ```bash
@@ -326,6 +327,7 @@ $ ip link set veth-blue-br master v-net-0
 $ ip -n blue addr add 192.168.15.2 dev veth-blue
 # turn the device up
 $ ip -n blue link set veth-blue up
+$ ip link set dev veth-blue-br up
 ```
 - Add NAT
 ```bash
