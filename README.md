@@ -49,6 +49,22 @@ grep searchterm ./* | uniq | cut -d: f1
 ```bash
 ps aux | sort
 ```
+### Bash Tricks
+```bash
+# check last exit code
+$ echo $?
+```
+```bash
+!#bin/bask
+
+# stop on error
+set -e
+
+# call some function with all arguments
+$ call-some-function $0
+
+```
+
 ## Package Manager
 ### Ubuntu
 ```bash
