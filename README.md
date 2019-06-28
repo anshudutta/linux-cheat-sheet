@@ -1,40 +1,30 @@
 # Linux Cheat Sheet
+
 ## Help
+
 ```
 man <command>
 ```
-## Shell
-+ Linux process has 3 channels
-	+ stdin (0)
-	+ stdout (1)
-	+ stderr (2)
-+ Input Redirection
-<b> prog1 < prog2 </b>
 
-+  Output redirections
-<b> prog1 > progr2 </b>
-<b>prog1 >> progr2 </b>
-	
-	```bash
-	# echo somethime text to file (overwrites the file each time command is executed)
-	echo "some text" 1>somefile
-	# OR
-	echo "some text" > somefile
-	# create or append existing file
-	echo "some other text" >>somefile
-	```
-+ Pipes - Channel Output of one command to input another command
-	<b>prog1 | prog 2 | prog 3</b>
-	```bash
-	ps aux | grep search | less
-	```
-+ && operator
-	<b>prog1 && prog2</b>
-	```bash
-	ls -la && echo "success"
-	```
-+ grep
-<b>prog1 | grep searchterm</b>
+## Shell
+
+- Linux process has 3 channels + stdin (0) + stdout (1) + stderr (2)
+- Input Redirection
+  <b> prog1 < prog2 </b>
+
+- Output redirections
+  <b> prog1 > progr2 </b>
+  <b>prog1 >> progr2 </b>
+  `bash # echo somethime text to file (overwrites the file each time command is executed) echo "some text" 1>somefile # OR echo "some text" > somefile # create or append existing file echo "some other text" >>somefile`
+- Pipes - Channel Output of one command to input another command
+  <b>prog1 | prog 2 | prog 3</b>
+  `bash ps aux | grep search | less`
+- && operator
+  <b>prog1 && prog2</b>
+  `bash ls -la && echo "success"`
+- grep
+  <b>prog1 | grep searchterm</b>
+
 ```bash
 # search in the file
 cat somefile | grep searchterm
@@ -45,15 +35,20 @@ grep searchterm ./*
 # show unique filenames with search term
 grep searchterm ./* | uniq | cut -d: f1
 ```
-+ sort
+
+- sort
+
 ```bash
 ps aux | sort
 ```
+
 ### Bash Tricks
+
 ```bash
 # check last exit code
 $ echo $?
 ```
+
 ```bash
 !#bin/bask
 
@@ -66,7 +61,9 @@ $ call-some-function $0
 ```
 
 ## Package Manager
+
 ### Ubuntu
+
 ```bash
 # updates the list of available packages and their versions, w/o installing
 sudo apt-get update
@@ -85,8 +82,11 @@ cat /etc/apt/sources.list
 # add a new repository to your package manager
 sudo add-apt-repository ppa:libreoffice/ppa
 ```
+
 ## File System
-* Navigation
+
+- Navigation
+
 ```bash
 cd /path/to/directory
 # Go to root
@@ -99,7 +99,9 @@ pwd
 # Move one level up
 cd ..
 ```
-* Directory
+
+- Directory
+
 ```bash
 ls
 # List vertically
@@ -114,7 +116,8 @@ mkdir somedir
 rm -r somedir
 ```
 
-* File
+- File
+
 ```bash
 # create a file
 touch somefile
@@ -140,31 +143,16 @@ tail -f somefile
 ```
 
 ## File editor
+
 ### Vim --> vi improved (modal editor)
-+ modes
-	+ command mode --> mode for running commands
-	+ insert mode ---> from command mode press i
-+ commands (to be run in command mode)
-	+ change to command mode --> press ESC
-	+ quit --> <b>:q</b>
-	+ write:--> <b>:w</b>
-	+ write and exit --> <b>:wq</b>
-	+ force quite --> <b>:q!</b> 
-	+ set line number --> <b>:set number</b> 
-	+ delete a line (n = number of lines) ---> <b>:ndd</b> 
-	+ Undo last action ---> Press u
-	+ Redo ---> <b>ctrl + r</b>
-	+ Search ---> Type forward slash and then search term
-		+ <b>/searchterm</b>
-		+ Next --> <b>press n</b>
-		+ Prev --> <b>press N</b>
-	+ Search & Replace
-		+ greedy ---> <b>:%s/searchterm/replaceterm/g</b>
-		+ ask confirm ---> <b>:%s/searchterm/replaceterm/gc</b>
-	
+
+- modes + command mode --> mode for running commands + insert mode ---> from command mode press i
+- commands (to be run in command mode) + change to command mode --> press ESC + quit --> <b>:q</b> + write:--> <b>:w</b> + write and exit --> <b>:wq</b> + force quite --> <b>:q!</b> + set line number --> <b>:set number</b> + delete a line (n = number of lines) ---> <b>:ndd</b> + Undo last action ---> Press u + Redo ---> <b>ctrl + r</b> + Search ---> Type forward slash and then search term + <b>/searchterm</b> + Next --> <b>press n</b> + Prev --> <b>press N</b> + Search & Replace + greedy ---> <b>:%s/searchterm/replaceterm/g</b> + ask confirm ---> <b>:%s/searchterm/replaceterm/gc</b>
+
 ## Sysadmin
 
 ### Basic
+
 ```bash
 # who is using?
 w
@@ -177,7 +165,9 @@ ps aux | less
 # show current network usage - tcp, udp, number
 sudo netstat - tupln
 ```
+
 ### ssh
+
 ```bash
 # generate ssh key pair
 $ ssh-keygen -C description@mail.com
@@ -186,10 +176,24 @@ $ ssh-add /path/to/private/key
 # add public key to authorozed hosts
 $ echo $( cat /home/core/.ssh/id_rsa.pub) >> ~/.ssh/authorized_keys
 # ssh specifying a key pair
-$ ssh -i /path/to/private/key user@ipaddress 
-# using username 
+$ ssh -i /path/to/private/key user@ipaddress
+# using username
 $ ssh user@ipaddress
 ```
+
+### System info
+
+```bash
+# disk usage, h --> human readable, s--> show size
+$ sudo du -hs /path/to/directory
+# check cpu
+$ cat /proc/cpuinfo
+# check cores
+$ npproc
+# check free space
+$ free -h
+```
+
 ### Networking
 
 ```
@@ -204,14 +208,14 @@ addrlabel	addrl			Label configuration for protocol address selection.
 ----------------------------------------------------------------------------------------------
 neighbour	n
 		neigh			ARP or NDISC cache entry.
-----------------------------------------------------------------------------------------------	
+----------------------------------------------------------------------------------------------
 route		r			Routing table entry.
 ----------------------------------------------------------------------------------------------
 rule		ru			Rule in routing policy database.
 ----------------------------------------------------------------------------------------------
 maddress	m
 		maddr			Multicast address.
-----------------------------------------------------------------------------------------------		
+----------------------------------------------------------------------------------------------
 mroute		mr			Multicast routing cache entry.
 ----------------------------------------------------------------------------------------------
 tunnel		t			Tunnel over IP.
@@ -230,6 +234,7 @@ $ ip link set eth1 up
 # down a network device
 $ ip link set eth1 down
 ```
+
 #### Ip address
 
 ```bash
@@ -246,6 +251,7 @@ $ ip link set eth1 up
 # disable a network interface
 $ ip link set eth1 down
 ```
+
 #### Route tables
 
 ```bash
@@ -262,6 +268,7 @@ $ ip route add default via 192.168.50.100
 ```
 
 #### DNS
+
 ```bash
 # modify host file
 $ echo "xxx.xxx.xxx.xx server-name" >> /etc/hosts
@@ -277,7 +284,9 @@ $ nslookup example.com ns1.nsexample.com
 # nslookup using type
 $ nslookup -type=soa example.com
 ```
+
 #### namespaces
+
 ```bash
 # list all namespaces
 $ ip netns list
@@ -293,10 +302,13 @@ $ ip netns exec red route
 $ ip netns exec red arp
 $ ip netns exec blue arp
 ```
+
 #### Setting up bridge network
+
 Refer - https://ops.tips/blog/using-network-namespaces-and-bridge-to-isolate-servers/
 
-* Create two namespaces to setup network isolation
+- Create two namespaces to setup network isolation
+
 ```bash
 # create two namespaces red, blue
 $ ip netns add red
@@ -306,8 +318,10 @@ $ ip link
 $ ip netns exec red ip link
 $ ip netns exec blue ip link
 ```
-* Setup a bridge network
-*Interface for the host and switch to the namespaces
+
+- Setup a bridge network
+  \*Interface for the host and switch to the namespaces
+
 ```bash
 # setup a bridge network
 $ ip link add v-net-0 type bridge
@@ -316,15 +330,19 @@ $ ip link set dev v-net-0 up
 # assign ip address to the bridge and set broadcast address
 $ ip addr add 192.168.15.5/24 brd + dev v-net-0
 ```
-* Create virtual network interfaces
+
+- Create virtual network interfaces
+
 ```bash
 # create two virtual cables
 $ ip link add veth-red type veth peer name veth-red-br
 $ ip link add veth-blue type veth peer name veth-blue-br
 ```
-* Attach the virtual interfaces and assign ip address
 
-- For red network
+- Attach the virtual interfaces and assign ip address
+
+* For red network
+
 ```bash
 # attach virtual cables to red host and bridge
 $ ip link set dev veth-red netns red
@@ -335,7 +353,9 @@ $ ip -n red addr add 192.168.15.1 dev veth-red
 $ ip -n red link set dev veth-red up
 $ ip link set dev veth-red-br up
 ```
+
 - For blue network
+
 ```bash
 # attach virtual cables to blue host and bridge
 $ ip link set veth-blue netns blue
@@ -346,16 +366,22 @@ $ ip -n blue addr add 192.168.15.2 dev veth-blue
 $ ip -n blue link set veth-blue up
 $ ip link set dev veth-blue-br up
 ```
+
 - Add NAT
+
 ```bash
 iptables -t nat POSTROUTING -s 192.168.15.0/24 -j MASQUERADE
 ```
+
 - Add Default gateway (set default gateway to the ip address of the bridge)
+
 ```bash
 ip netns exec red ip route add default via 192.168.15.5
 ip netns exec blue ip route add default via 192.168.15.5
 ```
+
 - Add port forward
+
 ```bash
 iptables -t nat PREROUTING --dport 80 --to-destination 192.168.15.2:80 -j DNAT
 ```
