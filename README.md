@@ -313,7 +313,25 @@ $ ip route del 10.10.20.0/24
 # add default gateway
 $ ip route add default via 192.168.50.100
 ```
+#### Ip Tables
 
+```bash
+# List all rules
+$ sudo iptables -L
+# BLock an ip address
+$ sudo iptables -A INPUT -s `soure ip` -j DROP
+# Reject a connection --> connection refused
+$ sudo iptables -A INPUT -s `soure ip` -j REJECT
+# Block connections to a network interface
+$ iptables -A INPUT -i eth0 -s `source ip` -j DROP
+# Allow ssh from a specific subnet and outgoing traffic of established SSH connections
+$ sudo iptables -A INPUT -p tcp -s 15.15.15.0/24 --dport 22 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
+# outgoing traffic of established SSH connections only if the OUTPUT policy is not ACCEPT
+$ sudo iptables -A OUTPUT -p tcp --sport 22 -m conntrack --ctstate ESTABLISHED -j ACCEPT
+# Allow all incoming HTTP and HTTPS
+$ sudo iptables -A INPUT -p tcp -m multiport --dports 80,443 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
+$ sudo iptables -A OUTPUT -p tcp -m multiport --dports 80,443 -m conntrack --ctstate ESTABLISHED -j ACCEPT
+```
 #### DNS
 
 ```bash
