@@ -141,7 +141,15 @@ tail -f somefile
 
 # unzip a file
 ```
-- Services
+
+## File editor
+
+### Vim --> vi improved (modal editor)
+
+- modes + command mode --> mode for running commands + insert mode ---> from command mode press i
+- commands (to be run in command mode) + change to command mode --> press ESC + quit --> <b>:q</b> + write:--> <b>:w</b> + write and exit --> <b>:wq</b> + force quite --> <b>:q!</b> + set line number --> <b>:set number</b> + delete a line (n = number of lines) ---> <b>:ndd</b> + Undo last action ---> Press u + Redo ---> <b>ctrl + r</b> + Search ---> Type forward slash and then search term + <b>/searchterm</b> + Next --> <b>press n</b> + Prev --> <b>press N</b> + Search & Replace + greedy ---> <b>:%s/searchterm/replaceterm/g</b> + ask confirm ---> <b>:%s/searchterm/replaceterm/gc</b>
+
+## Services
 
 Below is a simplified overview of the entire Linux boot and startup process:
 
@@ -163,12 +171,6 @@ $ systemctl status `service-name`
 # Reload systemd manager configuration
 $ systemctl daemon-reload
 ```
-## File editor
-
-### Vim --> vi improved (modal editor)
-
-- modes + command mode --> mode for running commands + insert mode ---> from command mode press i
-- commands (to be run in command mode) + change to command mode --> press ESC + quit --> <b>:q</b> + write:--> <b>:w</b> + write and exit --> <b>:wq</b> + force quite --> <b>:q!</b> + set line number --> <b>:set number</b> + delete a line (n = number of lines) ---> <b>:ndd</b> + Undo last action ---> Press u + Redo ---> <b>ctrl + r</b> + Search ---> Type forward slash and then search term + <b>/searchterm</b> + Next --> <b>press n</b> + Prev --> <b>press N</b> + Search & Replace + greedy ---> <b>:%s/searchterm/replaceterm/g</b> + ask confirm ---> <b>:%s/searchterm/replaceterm/gc</b>
 
 ## Sysadmin
 
