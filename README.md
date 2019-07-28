@@ -17,8 +17,8 @@ Tilda
 Represents home
 
 ```bash
-~user 	# /home/user
-~root 	# /root
+~json 	# user home /home/json
+~root 	# root home /root
 ~ftp 	# home of the srevice account /srv/ftp
 ```
 - Linux process has 3 channels + stdin (0) + stdout (1) + stderr (2)
