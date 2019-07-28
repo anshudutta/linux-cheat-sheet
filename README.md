@@ -13,6 +13,14 @@ man <command>
 	`$` --> User
 
 	`#` --> Root
+Tilda
+Represents home
+
+```bash
+~user 	# /home/user
+~root 	# /root
+~ftp 	# home of the srevice account /srv/ftp
+```
 - Linux process has 3 channels + stdin (0) + stdout (1) + stderr (2)
 - Input Redirection
   <b> prog1 < prog2 </b>
@@ -108,7 +116,7 @@ Directory structure
     /dev				# Device files, typically controlled by system administrators
     /boot				# Files needed to boot operating system
     /lib				# System libraries
-    /srv -->				# Contains data served by system, eg web server
+    /srv -->				# Contains data served by system, eg web server, services
 	    /www			# Web server files
 	    /ftp			# FTP files
 ```
