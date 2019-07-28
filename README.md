@@ -156,17 +156,19 @@ cd ..
 - Directory
 
 ```bash
-ls
+$ ls
 # List vertically
-ls -l
+$ ls -l
 # List Long, a = all, h = human readable
-ls -lah
+$ ls -lah
 # List any directory
-ls /abs/path/dir
+$ ls /abs/path/dir
 # create a directort
-mkdir somedir
+$ mkdir somedir
+# create a nested directory
+$ mkdir -p somdir/anotherdir
 # delete recurssively
-rm -r somedir
+$ rm -r somedir
 ```
 
 - File
