@@ -140,7 +140,9 @@ cd /
 cd ~
 # Print path
 pwd
-# . represents current directory
+# .  represents current directory
+# .. represents parent directory
+cd # change to previous directory
 # Move one level up
 cd ..
 ```
