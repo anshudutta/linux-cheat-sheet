@@ -4,6 +4,8 @@
 
 ```
 man <command>
+man -k SEARCH_TERM
+<command> --h or --help
 ```
 
 ## Shell
@@ -16,11 +18,20 @@ man <command>
 Tilda
 
 Represents home
-
 ```bash
 ~json 	# user home /home/json
 ~root 	# root home /root
 ~ftp 	# home of the srevice account /srv/ftp
+```
+Environment variables
+```bash
+$ echo $PATH
+$ exprt MY_VAR="some value"
+```
+Commands
+```bash
+# commands are case sensitive
+$ which <command> # prints the path of that command
 ```
 - Linux process has 3 channels + stdin (0) + stdout (1) + stderr (2)
 - Input Redirection
