@@ -161,6 +161,8 @@ $ ls
 $ ls -l
 # List Long, a = all, h = human readable
 $ ls -lah
+# list the type
+$ ls - F # / --> Directory, @ --> Link, * --> Executable
 # List any directory
 $ ls /abs/path/dir
 # create a directort
