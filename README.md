@@ -14,6 +14,7 @@ man <command>
 
 	`#` --> Root
 Tilda
+
 Represents home
 
 ```bash
