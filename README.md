@@ -9,8 +9,8 @@ man <command>
 ## Shell
 
 - Prompt
-	$ --> User
-	# --> Root
+	`$` --> User
+	`#` --> Root
 - Linux process has 3 channels + stdin (0) + stdout (1) + stderr (2)
 - Input Redirection
   <b> prog1 < prog2 </b>
