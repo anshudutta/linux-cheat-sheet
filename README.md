@@ -175,23 +175,25 @@ $ rm -rf somedir
 
 ```bash
 # create a file
-touch somefile
+$ touch somefile
 # delete a file
-rm somefire
+$ rm somefire
 # rename / move a file
-mv /path/to/source/somefile /path/to/dest/
+$ mv /path/to/source/somefile /path/to/dest/
 # copy a file
-cp /path/to/source /path/to/dest
+$ cp /path/to/source /path/to/dest
 # to current directory
-cp /path/to/source ./file
+$ cp /path/to/source ./file
 # read a file
-cat somefile
+$ cat somefile
 # read / concat multiple files
-cat somefile someotherfile
+$ cat somefile someotherfile
 # read top of file
-head -n 10 somefile
+$ head -n 10 somefile
 # read bottom of file
-tail -f somefile
+$ tail -f somefile
+# Hidden files start with a dot (.)
+$ touch .gitignore
 #  zip a file
 
 # unzip a file
