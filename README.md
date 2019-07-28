@@ -23,7 +23,9 @@ Tilda - Represents home
 ```
 Environment variables
 ```bash
+# PATH has list of path for all commands.
 $ echo $PATH
+$ echo $OLDPWD # the previous directory
 $ exprt MY_VAR="some value"
 ```
 Commands
