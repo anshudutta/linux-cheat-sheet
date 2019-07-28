@@ -167,8 +167,8 @@ $ ls /abs/path/dir
 $ mkdir somedir
 # create a nested directory
 $ mkdir -p somdir/anotherdir
-# delete recurssively
-$ rm -r somedir
+# delete recursively with force
+$ rm -rf somedir
 ```
 
 - File
