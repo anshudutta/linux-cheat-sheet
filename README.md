@@ -10,14 +10,12 @@ man -k SEARCH_TERM
 
 ## Shell
 
-- Prompt
-
-	`$` --> User
-
-	`#` --> Root
-Tilda
-
-Represents home
+Prompt
+```bash
+$ --> User
+# --> Root
+```
+Tilda - Represents home
 ```bash
 ~json 	# user home /home/json
 ~root 	# root home /root
