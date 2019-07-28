@@ -9,7 +9,9 @@ man <command>
 ## Shell
 
 - Prompt
+
 	`$` --> User
+
 	`#` --> Root
 - Linux process has 3 channels + stdin (0) + stdout (1) + stderr (2)
 - Input Redirection
