@@ -34,7 +34,7 @@ Commands
 $ which <command> # prints the path of that command
 # Execute command (if command path is not in PATH)
 $ /path/to/command # absolute path
-$ ./command # relative path
+$ ./command-in-current-dir # relative path
 ```
 - Linux process has 3 channels + stdin (0) + stdout (1) + stderr (2)
 - Input Redirection
