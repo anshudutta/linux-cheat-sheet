@@ -142,7 +142,8 @@ cd ~
 pwd
 # .  represents current directory
 # .. represents parent directory
-cd # change to previous directory
+# change to previous directory
+cd - 
 # Move one level up
 cd ..
 ```
