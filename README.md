@@ -84,7 +84,29 @@ sudo add-apt-repository ppa:libreoffice/ppa
 ```
 
 ## File System
-
+Directory structure
+```bash
+/ -->					# Root
+    /bin 				# Binaries and other exec programs
+    /etc				# System config files
+    /home				# Home directories
+    /opt				# Optional or 3rd party sodtware
+    /tmp				# Temporary space typically cleared on reboot
+    /usr -->				# User related programs
+	    /local -->			# Apps that are not shipped with distro
+		     /app -->
+		    	    /bin
+			    /etc
+			    /lib
+			    /log
+    /var				# Variable data, notably log files
+    /dev				# Device files, typically controlled by system administrators
+    /boot				# Files needed to boot operating system
+    /lib				# System libraries
+    /srv -->				# Contains data served by system, eg web server
+	    /www			# Web server files
+	    /ftp			# FTP files
+```
 - Navigation
 
 ```bash
