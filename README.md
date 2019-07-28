@@ -161,8 +161,14 @@ $ ls
 $ ls -l
 # List Long, a = all, h = human readable
 $ ls -lah
+# List the time
+$ ls -t
+# Time in reverse
+$ ls -r
 # list the type
-$ ls - F # / --> Directory, @ --> Link, * --> Executable
+$ ls - F # ending / --> Directory, @ --> Link, * --> Executable
+# List contents of directory recursively
+$ ls -R
 # List any directory
 $ ls /abs/path/dir
 # create a directort
@@ -196,6 +202,8 @@ $ head -n 10 somefile
 $ tail -f somefile
 # Hidden files start with a dot (.)
 $ touch .gitignore
+# Symlink
+$ 
 #  zip a file
 
 # unzip a file
