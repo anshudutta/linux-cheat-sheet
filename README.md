@@ -10,25 +10,25 @@ man -k SEARCH_TERM
 
 ## Shell
 
-Prompt
+- Prompt
 ```bash
 $ --> User
 # --> Root
 ```
-Tilda - Represents home
+- Tilda - Represents home
 ```bash
 ~json 	# user home /home/json
 ~root 	# root home /root
 ~ftp 	# home of the srevice account /srv/ftp
 ```
-Environment variables
+- Environment variables
 ```bash
 # PATH has list of path for all commands.
 $ echo $PATH
 $ echo $OLDPWD # the previous directory
 $ exprt MY_VAR="some value"
 ```
-Commands
+- Commands
 ```bash
 # commands are case sensitive
 $ which <command> # prints the path of that command
@@ -36,14 +36,35 @@ $ which <command> # prints the path of that command
 $ /path/to/command # absolute path
 $ ./command-in-current-dir # relative path
 ```
-- Linux process has 3 channels + stdin (0) + stdout (1) + stderr (2)
-- Input Redirection
-  <b> prog1 < prog2 </b>
+- Input/Output Types
+```bash
+I/O Name	Abbreviation	Value
+-------------------------------------
+Standard Input	stdin		0
+Standard Output	stdout		1
+Standard Error	stderr		2
 
-- Output redirections
-  <b> prog1 > progr2 </b>
-  <b>prog1 >> progr2 </b>
-  `bash # echo somethime text to file (overwrites the file each time command is executed) echo "some text" 1>somefile # OR echo "some text" > somefile # create or append existing file echo "some other text" >>somefile`
+Symbol	Description
+---------------------
+>	Redirects standard output to a file (Overwrites existing contents)
+>>	Redirects standard output to a file (Appends existing contents)
+<	Redirects input from a file to a command
+&	Combines 
+
+Examples
+2>&1 		Redirects stderr to stdout
+>/dev/null	Redirects to null device
+
+# echo text and save stdout in a file
+$ echo "some text" 1>somefile 
+$ echo "some text" > somefile 
+$ echo "some other text" >>somefile 	# Append
+$ sort < files.txt 			# Input redirection
+$ sort < files.txt > sorted_files 	# Combine Input and Output
+$ ls not-here 2>/dev/null		# Send errors to null device
+$ ls files.txt not-here > logs 2>&1	# Send output and error to logs file
+
+```
 - Pipes - Channel Output of one command to input another command
   <b>prog1 | prog 2 | prog 3</b>
   `bash ps aux | grep search | less`
