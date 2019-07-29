@@ -208,6 +208,36 @@ $
 
 # unzip a file
 ```
+- Permissions
+
+```bash
+$ ls -l 
+# shows <type><user-permissions(rwx)><group-permissions(rwx)><other-permissions(rwx)>
+# 1. Type
+# d --> directory, - --> file, | --> symlink
+# 2. Permissions -->
+# u --> user(owner), g --> group(user in same group as owner), o --> other(not owner or in same group), a --> all
+# r --> read, w --> write, x --> executable
+$ groups # lists all groups
+$ id -Gn
+# show groups of user
+$ groups <user>
+# Setting permissions using chmod (change mode)
+$ chmod <ugoa><+-><rwx> filename
+# set write permission to all users in the same group as owner
+$ chmod g+w ./sales.data
+# remove write permission to all users in the same group as owner
+$ chmod g-w ./sales.data
+# Give users execute, remove execute from groups
+$ chmod u+rwx,g-x ./sales.data
+
+r	w	x
+------------------
+0	0	0 	# Binary Off
+1	1	1	# Binary On
+4	2	1	# Octal Mode
+
+```
 
 ## File editor
 
