@@ -220,6 +220,15 @@ $
 
 # unzip a file
 ```
+- Wildcards (glob)
+
+```bash
+# asterix
+# * --> *.txt, a*, a*.txt
+
+# question Mark (matches one character)
+# ? --> ?.txt, a?, a?.txt
+```
 - Permissions
 
 ```bash
