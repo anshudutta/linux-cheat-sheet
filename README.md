@@ -218,10 +218,12 @@ $ ls -l
 # 2. Permissions -->
 # u --> user(owner), g --> group(user in same group as owner), o --> other(not owner or in same group), a --> all
 # r --> read, w --> write, x --> executable
+
 $ groups # lists all groups
 $ id -Gn
 # show groups of user
 $ groups <user>
+
 # Setting permissions using chmod (change mode)
 $ chmod <ugoa><+-><rwx> filename
 # set write permission to all users in the same group as owner
@@ -237,6 +239,8 @@ r	w	x
 1	1	1	# Binary On
 4	2	1	# Octal Mode
 
+# Change the group of a file
+$ chgrp <groupname> filename
 ```
 
 ## File editor
