@@ -171,12 +171,24 @@ $ ls - F # ending / --> Directory, @ --> Link, * --> Executable
 $ ls -R
 # List any directory
 $ ls /abs/path/dir
+
 # create a directort
 $ mkdir somedir
 # create a nested directory
 $ mkdir -p somdir/anotherdir
 # delete recursively with force
 $ rm -rf somedir
+
+# finding items
+$ find .				# finds everything in the current directory
+$ find /path/to/dir -name somename	# case sensitive search
+$ find /path/to/dir -iname somename	# case insensitive search
+$ find /path/to/dir -iname *somename	# wildcard search
+$ find . -name s* ls			# find that starts with s and then perform ls
+$ find . -type d -iname *some		# find type directory
+
+# locate (uses an index)
+$ locate somename
 ```
 
 - File
