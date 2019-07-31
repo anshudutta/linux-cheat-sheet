@@ -77,6 +77,22 @@ $ grep searchterm ./*
 grep searchterm ./* | uniq | cut -d: f1
 $ bash ps aux | grep search | less
 ```
+- Processes
+```bash
+# display process with current session
+$ ps
+# display all processes, full
+$ ps -ef
+# display a process tree
+$ ps -e --forest
+# display users processes
+$ ps -u --username
+# display process in tree format
+$ pstree
+# Interactive process viewer
+$ top
+$ htop
+```
 
 - && Operator
 ```bash
