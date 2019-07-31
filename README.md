@@ -81,6 +81,8 @@ $ bash ps aux | grep search | less
 ```bash
 # display process with current session
 $ ps
+# a = all users, u = display user/owner, x = processes not attached to a terminal
+$ ps aux
 # display all processes, full
 $ ps -ef
 # display a process tree
@@ -92,6 +94,9 @@ $ pstree
 # Interactive process viewer
 $ top
 $ htop
+
+# kill
+$ pkill processname
 ```
 
 - && Operator
