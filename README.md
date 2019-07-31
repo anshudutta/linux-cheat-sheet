@@ -10,12 +10,12 @@ man -k SEARCH_TERM
 
 ## Shell
 
-- Prompt
+### Prompt
 ```bash
 $ --> User
 # --> Root
 ```
-- Tilda - Represents home
+### Tilda - Represents home
 ```bash
 ~json 	# user home /home/json
 ~root 	# root home /root
@@ -30,7 +30,7 @@ $ export MY_VAR="some value"
 $ unset MY_VAR
 $ printenv
 ```
-- Commands
+### Commands
 ```bash
 # commands are case sensitive
 $ which <command> # prints the path of that command
@@ -66,7 +66,7 @@ $ sort < files.txt > sorted_files 	# Combine Input and Output
 $ ls not-here 2>/dev/null		# Send errors to null device
 $ ls files.txt not-here > logs 2>&1	# Send output and error to logs file
 ```
-- Pipes
+### Pipes
 ```bash
 # command-output | command-input
 # takes stadout from left hand side and pipes it to stdin for command
@@ -77,7 +77,7 @@ $ grep searchterm ./*
 grep searchterm ./* | uniq | cut -d: f1
 $ bash ps aux | grep search | less
 ```
-- Processes
+### Processes
 ```bash
 # display process with current session
 $ ps
@@ -101,7 +101,7 @@ $ kill -9 <pid> # force kill
 $ pkill processname
 ```
 
-- && Operator
+### && Operator
 ```bash
 $ bash ls -la && echo "success"
 ```
@@ -174,7 +174,7 @@ Directory structure
 	    /www			# Web server files
 	    /ftp			# FTP files
 ```
-- Navigation
+### Navigation
 
 ```bash
 cd /path/to/directory
@@ -192,7 +192,7 @@ cd -
 cd ..
 ```
 
-- Directory
+### Directory
 
 ```bash
 $ ls
@@ -230,7 +230,7 @@ $ find . -type d -iname *some		# find type directory
 $ locate somename
 ```
 
-- File
+### File
 
 ```bash
 # create a file
@@ -274,7 +274,7 @@ $ grep searchterm file
 
 # unzip a file
 ```
-- Wildcards (glob)
+### Wildcards (glob)
 
 ```bash
 # asterix
@@ -318,7 +318,7 @@ r	w	x
 $ chgrp <groupname> filename
 ```
 
-- File editor
+### File editor
 
 Vim --> vi improved (modal editor)
 
