@@ -225,18 +225,30 @@ $ mv /path/to/source/somefile /path/to/dest/
 $ cp /path/to/source /path/to/dest
 # to current directory
 $ cp /path/to/source ./file
-# read a file
-$ cat somefile
+
+# read a file with line number
+$ cat -n somefile
 # read / concat multiple files
 $ cat somefile someotherfile
 # read top of file
 $ head -n 10 somefile
 # read bottom of file
 $ tail -f somefile
+
 # Hidden files start with a dot (.)
 $ touch .gitignore
+
 # Symlink
 $ 
+
+# Difference between files
+$ diff file1 file2 
+# eg 3c3 --> line number file1 , (a)dd, (c)hange, (d)elete line number file2
+# < --> first file, > --> second file
+$ sdiff file1 file2 # diff side by side
+$ vimdiff file1 file2 # ctrl-w w to move between windows
+
+
 #  zip a file
 
 # unzip a file
