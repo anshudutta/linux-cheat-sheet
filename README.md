@@ -346,7 +346,7 @@ sudo netstat - tupln
 ```bash
 # generate ssh key pair
 $ ssh-keygen -C description@mail.com
-# add private key to known hosts
+# add private key to known hosts using ssh agent
 $ ssh-add /path/to/private/key
 # add public key to authorozed hosts
 $ echo $( cat /home/core/.ssh/id_rsa.pub) >> ~/.ssh/authorized_keys
@@ -355,9 +355,22 @@ $ ssh -i /path/to/private/key user@ipaddress
 # using username
 $ ssh user@ipaddress
 ```
+### File copy
+```bash
+# scp --> secure file copy
+$ scp filename user@servername:/path/to/destination
+
+# sftp --> SSH file transfer protocol
+$ sftp user@servername
+$ lls 		# ls on (l)ocal, 
+$ put file 	# copies file to server
+$ quit		quit
+
+```
+### Certificates
 Using Certificate Authority
 
-Creating root certificate
+- Creating root certificate
 ```bash
 # Create private key for CA
 openssl genrsa -out ca.key 2048
@@ -368,8 +381,7 @@ openssl req -new -key ca.key -subj "/CN=KUBERNETES-CA" -out ca.csr
 # Self sign the csr using its own private key
 openssl x509 -req -in ca.csr -signkey ca.key -CAcreateserial  -out ca.crt -days 1000
 ```
-Creating client certificate
-
+- Creating client certificate
 ```bash
 # Geenrate private key for admin user
 openssl genrsa -out admin.key 2048
