@@ -63,30 +63,24 @@ $ sort < files.txt 			# Input redirection
 $ sort < files.txt > sorted_files 	# Combine Input and Output
 $ ls not-here 2>/dev/null		# Send errors to null device
 $ ls files.txt not-here > logs 2>&1	# Send output and error to logs file
-
 ```
-- Pipes - Channel Output of one command to input another command
-  <b>prog1 | prog 2 | prog 3</b>
-  `bash ps aux | grep search | less`
-- && operator
-  <b>prog1 && prog2</b>
-  `bash ls -la && echo "success"`
-- grep
-  <b>prog1 | grep searchterm</b>
-
+- Pipes
 ```bash
-# search in the file
-cat somefile | grep searchterm
-# or
-grep searchterm somefile
+# command-output | command-input
+# takes stadout from left hand side and pipes it to stdin for command
+$ cat file | grep pattern # same as grep pattern file
 # search file with some content
-grep searchterm ./*
+$ grep searchterm ./*
 # show unique filenames with search term
 grep searchterm ./* | uniq | cut -d: f1
+$ bash ps aux | grep search | less
 ```
 
-- sort
-
+- && Operator
+```bash
+$ bash ls -la && echo "success"
+```
+- Sort
 ```bash
 ps aux | sort
 ```
@@ -248,6 +242,9 @@ $ diff file1 file2
 $ sdiff file1 file2 # diff side by side
 $ vimdiff file1 file2 # ctrl-w w to move between windows
 
+# Search in file --> Use grep
+# i --> ignore case, c --> count number of instances, -n --> output with line number
+$ grep searchterm file
 
 #  zip a file
 
