@@ -151,7 +151,7 @@ sudo add-apt-repository ppa:libreoffice/ppa
 ```
 
 ## File System
-Directory structure
+#### Directory structure
 ```bash
 / -->					# Root
     /bin 				# Binaries and other exec programs
@@ -369,9 +369,27 @@ ps aux | less
 sudo netstat - tupln
 ```
 ### Logs
+- Provides centralized logging so that applications don't have to manage logs
+- Applications can use `logger` tool to write logs
+
+Log Servers
+- syslogd
+- rsyslog
+- syslog-ng
+
+Configuration
 ```bash
-# check boot logs
-$ cat /var/logs/dmesg
+$ echo "include /etc/syslog.d/*.conf" >> /etc/syslog.conf
+```
+
+Log 
+```bash
+# check all logs
+$ less /var/logs/syslog
+
+# boot --> /var/logs/dmesg
+# boot --> /var/logs/boot.log
+# cron --> /var/logs/cron
 ```
 ### ssh
 
