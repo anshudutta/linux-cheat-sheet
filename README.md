@@ -368,7 +368,11 @@ ps aux | less
 # show current network usage - tcp, udp, number
 sudo netstat - tupln
 ```
-
+### Logs
+```bash
+# check boot logs
+$ cat /var/logs/dmesg
+```
 ### ssh
 
 ```bash
