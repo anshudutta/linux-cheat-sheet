@@ -26,7 +26,9 @@ $ --> User
 # PATH has list of path for all commands.
 $ echo $PATH
 $ echo $OLDPWD # the previous directory
-$ exprt MY_VAR="some value"
+$ export MY_VAR="some value"
+$ unset MY_VAR
+$ printenv
 ```
 - Commands
 ```bash
@@ -100,7 +102,6 @@ set -e
 
 # call some function with all arguments
 $ call-some-function $0
-
 ```
 
 ## Package Manager
