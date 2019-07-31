@@ -96,6 +96,8 @@ $ top
 $ htop
 
 # kill
+$ kill <pid>
+$ kill -9 <pid> # force kill
 $ pkill processname
 ```
 
