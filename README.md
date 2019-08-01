@@ -526,13 +526,16 @@ $ ip route add 10.10.20.0/24 via 192.168.50.100 dev eth0
 $ ip route del 10.10.20.0/24
 # add default gateway
 $ ip route add default via 192.168.50.100
+
+# configuration for eth-0
+$ cat /etc/sysconfig/network-scripts/ifcfg-eth0
 ```
 #### Ip Tables
 
 ```bash
 # List all rules
 $ sudo iptables -L
-# BLock an ip address
+# Block an ip address
 $ sudo iptables -A INPUT -s `soure ip` -j DROP
 # Reject a connection --> connection refused
 $ sudo iptables -A INPUT -s `soure ip` -j REJECT
@@ -564,7 +567,7 @@ $ nslookup example.com ns1.nsexample.com
 $ nslookup -type=soa example.com
 ```
 
-#### namespaces
+#### Namespaces
 
 ```bash
 # list all namespaces
@@ -581,7 +584,28 @@ $ ip netns exec red route
 $ ip netns exec red arp
 $ ip netns exec blue arp
 ```
+#### NAT
+- SNAT
+- DNAT
+- PAT
+- PORT FORWARD
 
+1. To enable NAT you need to have 2 network interfaces - private and public
+2. Using PAT assign a public ip address to a packet coming from a private network for outgoing request
+3. For response, allow the incoming traffic to be forwarded to the correct host in private network
+```bash
+# enable forwarding in a router
+$ echo 1 > /proc/sys/net/ipv4/ip_forward
+# allow on start up
+$ echo "net.ipv4.ip_forward=1" >> /etc/sysctl.conf
+$ sysctl -p
+
+# setup NAT, eth0 --> external n/w, eth1 --> internal n/w
+$ iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+$ iptables -A FORWARD -i eth0 -o eth1 -m state --state RELATED,ESTABLISHED -j ACCEPT
+$ iptables -A FORWARD -i eth1 -o eth0 -j ACCEPT
+$ iptables save
+```
 #### Setting up bridge network
 
 Refer - https://ops.tips/blog/using-network-namespaces-and-bridge-to-isolate-servers/
@@ -599,7 +623,7 @@ $ ip netns exec blue ip link
 ```
 
 - Setup a bridge network
-  \*Interface for the host and switch to the namespaces
+  *Interface for the host and switch to the namespaces
 
 ```bash
 # setup a bridge network
