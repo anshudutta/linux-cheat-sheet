@@ -532,6 +532,18 @@ $ cat /etc/sysconfig/network-scripts/ifcfg-eth0
 ```
 #### Ip Tables
 
+PACKET IN
+    |
+PREROUTING--[routing]-->--FORWARD-->--POSTROUTING-->--OUT
+ - nat (dst)   |           - filter      - nat (src)
+               |                            |
+               |                            |
+              INPUT                       OUTPUT
+              - filter                    - nat (dst)
+               |                          - filter
+               |                            |
+               `----->-----[app]----->------'
+
 ```bash
 # List all rules
 $ sudo iptables -L
