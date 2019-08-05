@@ -404,6 +404,9 @@ $ echo $( cat /home/core/.ssh/id_rsa.pub) >> ~/.ssh/authorized_keys
 $ ssh -i /path/to/private/key user@ipaddress
 # using username
 $ ssh user@ipaddress
+
+# ssh configuration (set up config in ~/.ssh/conf.d/)
+$ echo "include ~/.ssh/conf.d/*.conf" >> ~/.ssh/config
 ```
 ### File copy
 ```bash
@@ -485,6 +488,11 @@ xfrm		x			Framework for IPsec protocol.
 ----------------------------------------------------------------------------------------------
 ```
 
+#### Ports
+```bash
+$ cat /etc/services
+```
+
 #### Link
 
 ```bash
@@ -494,6 +502,9 @@ $ ip link
 $ ip link set eth1 up
 # down a network device
 $ ip link set eth1 down
+# configure network interfaces
+# vim /etc/sysconfig/network-scripts/ifcfg-<device>
+$ vim /etc/sysconfig/network-scripts/ifcfg-eth0
 ```
 
 #### Ip address
@@ -530,7 +541,7 @@ $ ip route add default via 192.168.50.100
 # configuration for eth-0
 $ cat /etc/sysconfig/network-scripts/ifcfg-eth0
 ```
-#### Ip Tables
+#### IP Tables
 
 PACKET IN
     |
@@ -596,6 +607,7 @@ $ ip netns exec red route
 $ ip netns exec red arp
 $ ip netns exec blue arp
 ```
+
 #### NAT
 - SNAT
 - DNAT
@@ -605,6 +617,7 @@ $ ip netns exec blue arp
 1. To enable NAT you need to have 2 network interfaces - private and public
 2. Using PAT assign a public ip address to a packet coming from a private network for outgoing request
 3. For response, allow the incoming traffic to be forwarded to the correct host in private network
+
 ```bash
 # enable forwarding in a router
 $ echo 1 > /proc/sys/net/ipv4/ip_forward
