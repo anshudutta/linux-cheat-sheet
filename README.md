@@ -542,7 +542,7 @@ $ ip route add default via 192.168.50.100
 $ cat /etc/sysconfig/network-scripts/ifcfg-eth0
 ```
 #### IP Tables
-
+```bash
 PACKET IN
     |
 PREROUTING--[routing]-->--FORWARD-->--POSTROUTING-->--OUT
@@ -554,6 +554,7 @@ PREROUTING--[routing]-->--FORWARD-->--POSTROUTING-->--OUT
                |                          - filter
                |                            |
                `----->-----[app]----->------'
+```
 
 ```bash
 # List all rules
