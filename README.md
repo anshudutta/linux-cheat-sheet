@@ -382,6 +382,8 @@ ps aux
 ps aux | less
 # show current network usage - tcp, udp, number
 sudo netstat - tupln
+# hostname
+$ hostname
 ```
 ### Logs
 - Provides centralized logging so that applications don't have to manage logs
@@ -405,6 +407,15 @@ $ less /var/logs/syslog
 # boot --> /var/logs/dmesg
 # boot --> /var/logs/boot.log
 # cron --> /var/logs/cron
+```
+### Disk Usage
+
+- Disks can be divided into parts called partition used to segregate data
+- A mount point is a directory used to access data on partition
+
+
+```bash
+
 ```
 ### ssh
 
