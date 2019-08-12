@@ -322,6 +322,7 @@ $ chgrp <groupname> filename
 
 Vim --> vi improved (modal editor)
 
+```bash
 - modes 
 command mode --> mode for running commands 
 insert mode ---> from command mode press i
@@ -341,6 +342,7 @@ change to command mode --> press ESC
 	- Prev --> <b>press N</b> +
 - Search & Replace + greedy ---> <b>:%s/searchterm/replaceterm/g</b> 
 - ask confirm ---> <b>:%s/searchterm/replaceterm/gc</b>
+```
 
 ## Services
 
@@ -650,6 +652,7 @@ $ iptables save
 # iptables -A PREROUTING -t nat -i eth0 -p tcp --dport 80 -j DNAT --to 192.168.1.2:8080
 # iptables -A FORWARD -p tcp -d 192.168.1.2 --dport 8080 -j ACCEPT
 ```
+
 #### Setting up bridge network
 
 Refer - https://ops.tips/blog/using-network-namespaces-and-bridge-to-isolate-servers/
@@ -731,4 +734,38 @@ ip netns exec blue ip route add default via 192.168.15.5
 
 ```bash
 iptables -t nat PREROUTING --dport 80 --to-destination 192.168.15.2:80 -j DNAT
+```
+#### Troubleshooting Network Issues
+
+```bash
+# if icmp is enabled check if host is reachable
+$ ping -c google.com
+
+# troubleshoot dns issues
+$ traceroute -n google.com
+$ tracepath -n google.com
+
+# netstat
+# -n --> numerical address and ports
+# -i --> list of network interfaces
+# -r --> route table
+# -p --> pid and program used
+# -l --> listening socket
+
+# display route table
+$ netstat -rn
+# display listening socket (tcp), eg. check if nginx is listening on port 80
+$ netstat -ntlp
+# for udp
+$ netstat -nulp
+
+# packet sniffing using tcpdump
+# -n --> numerical address and ports
+# -A --> display ASCII output
+# -v --> verbose
+# -vvv --> even more verbose
+$ tcpdump
+
+# telnet --> check port open and listening on remote server
+$ telnet google.com 80
 ```
