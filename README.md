@@ -413,6 +413,7 @@ $ less /var/logs/syslog
 - Disks can be divided into parts called partition used to segregate data
 - A mount point is a directory used to access data on partition
 
+Raw device --> Install File System --> Mount -- > block Device
 
 ```bash
 
