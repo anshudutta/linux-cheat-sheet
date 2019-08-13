@@ -410,10 +410,23 @@ $ less /var/logs/syslog
 ```
 ### Disk Usage
 
-- Disks can be divided into parts called partition used to segregate data
-- A mount point is a directory used to access data on partition
+- To install an operating system on a hard drive, it must be subdidvided into dstict storage unit called partitions
+- Hard drives in linux are named as /dev/sda, /dev/sdb ..etc
+- Partitions in linux are named using numbers strating from 0. eg- sda1, sda2,..sda4 
+- A mount point is a directory used to access data on partition. Most commonly used mount points are /, /boot, /home/ etc
+- Partitioning schemes
+   - MBR
+   - GPT
+Hard Drive --> Partition --> Install File System --> Mount --> block Device
 
-Raw device --> Install File System --> Mount -- > block Device
+```
+Partition	Type	Mount Point
+------------------------------------
+/dev/sda1	ext2	/
+/dev/sda2	ext2	/boot
+/dev/sda3	ext4	/user
+/dev/sda4	ext4	/home
+```
 
 ```bash
 
