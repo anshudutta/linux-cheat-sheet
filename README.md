@@ -417,6 +417,7 @@ $ less /var/logs/syslog
 - Partitioning schemes
    - MBR
    - GPT
+
 Hard Drive --> Partition --> Install File System --> Mount --> block Device
 
 ```
