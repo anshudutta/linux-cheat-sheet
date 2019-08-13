@@ -430,7 +430,27 @@ Partition	Type	Mount Point
 ```
 
 ```bash
+# commands --> fdisk, parted, gdisk
+# display a list of disks
+$ fdisk -l
 
+# creating a partition --> fdisk /path/to/disk and follow commands
+# choose p --> primary, 1 --> number, +1G for 1 GB in size, m--> help, w --> write
+$ fdisk /dev/sdb
+
+# creating a file system 
+# mkfs -t TYPE DEVICE
+$ mkfs -t ext4 /dev/sda1
+
+# mount the partition
+# mount DEVICE MOUNT_POINT
+$ mount /dev/sdb3 /opt
+# persist the change in /etc/fstab
+# unmount
+$ umount /opt
+
+# show the file system usage (disk free)
+$ df -h
 ```
 ### ssh
 
