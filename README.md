@@ -451,17 +451,24 @@ $ umount /opt
 
 # show the file system usage (disk free)
 $ df -h
+
+# show info on all block devices
+$ lsblk
 ```
 ### ssh
-
 ```bash
 # generate ssh key pair
 $ ssh-keygen -C description@mail.com
+
 # add private key to known hosts using ssh agent
 $ ssh-add /path/to/private/key
-# add public key to authorozed hosts
-$ echo $( cat /home/core/.ssh/id_rsa.pub) >> ~/.ssh/authorized_keys
-# ssh specifying a key pair
+# add it manually
+$ echo $(cat private.key) >> ~/.ssh/known_hosts
+
+# add public key to authorozed hosts on remote server
+$ echo $( cat ~/.ssh/id_rsa.pub) >> ~/.ssh/authorized_keys
+
+# connect to remote host
 $ ssh -i /path/to/private/key user@ipaddress
 # using username
 $ ssh user@ipaddress
@@ -477,9 +484,8 @@ $ scp filename user@servername:/path/to/destination
 # sftp --> SSH file transfer protocol
 $ sftp user@servername
 $ lls 		# ls on (l)ocal, 
-$ put file 	# copies file to server
+$ put filename 	# copies file to server
 $ quit		quit
-
 ```
 ### Certificates
 Using Certificate Authority
@@ -814,4 +820,7 @@ $ tcpdump
 
 # telnet --> check port open and listening on remote server
 $ telnet google.com 80
+
+# port scan
+$ nmap www.server.com
 ```
