@@ -877,7 +877,7 @@ $ cat /etc/shells
 # /etc/shadow
 # format --> username: encrypted password: password info
 
-# add user, -c comment, -m create home directory, -s shell path, -g default group, 
+# add user, -c comment, -m create home directory, -s shell path, -g primary group, -G other group
 $ useradd -c "Joe Bill" -m -s /bin/bash -g sales joe
 # assign password
 $ passwd joe
