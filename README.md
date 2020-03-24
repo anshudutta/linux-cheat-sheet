@@ -929,4 +929,31 @@ $ cat <<EOF >> /etc/grub.d/40_custom
 set superusers="root"
 password root root
 EOF
+# encrypt the file
+# rebuild grub.cfg file
 ```
+#### Disk Encryption
+Using dm-crypt
+```
+--------------------------------------
+File system and Directories /home
+--------------------------------------
+--------------------------------------
+File system EXT4
+--------------------------------------
+--------------------------------------
+Virtual Block Device /dev/mapper/home
+--------------------------------------
+--------------------------------------
+Encryption/Decryption dm-crypt
+--------------------------------------
+--------------------------------------
+Physical Block Device /dev/sda2
+--------------------------------------
+```
+Using LUKS
+- Linux Unified Key Setup
+- Front-end for dm-crypt
+- Multiple passphrase support
+- Portable as LUKS stores setup information in partition header
+- Great for removable device
