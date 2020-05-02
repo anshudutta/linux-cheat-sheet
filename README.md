@@ -684,14 +684,29 @@ $ cat /etc/resolv.conf
 # set up dns
 $ echo "nameserver xxx.xxx.xxx.xxx" >> /etc/resolv.conf
 $ echo "nameserver 8.8.8.8" >> /etc/resolv.conf
-# debug dns
+```
+##### DNS debug
+nslookup
+```bash
 $ nslookup www.google.com
 # nslookup using a specific name server
 $ nslookup example.com ns1.nsexample.com
 # nslookup using type
 $ nslookup -type=soa example.com
 ```
-
+dig
+```
+$ dig www.google.com
+$ dig www.google.com A 		# IPv4
+$ dig www.google.com AAAA 	# IPv6
+$ dig www.google.com NS		# Name Server
+$ dig @8.8.8.8 www.google.com	# Use a specific DNS server
+$ dig -x 8.8.8.8		# Reverse lookup
+```
+traceroute - Prints the n/w hop taken to resolve the dns. It figures it out by sending packets with incremental TTL
+```
+$ traceroute www.google.com
+```
 #### Namespaces
 
 ```bash
