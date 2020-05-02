@@ -1,4 +1,4 @@
-### Networking
+## Networking
 
 ```
 Object		Abbreviated form	Purpose
@@ -28,12 +28,12 @@ xfrm		x			Framework for IPsec protocol.
 ----------------------------------------------------------------------------------------------
 ```
 
-#### Ports
+### Ports
 ```bash
 $ cat /etc/services
 ```
 
-#### Link
+### Link
 
 ```bash
 # view network interfaces on host
@@ -47,7 +47,7 @@ $ ip link set eth1 down
 $ vim /etc/sysconfig/network-scripts/ifcfg-eth0
 ```
 
-#### Ip address
+### Ip address
 
 ```bash
 # list network details
@@ -64,7 +64,7 @@ $ ip link set eth1 up
 $ ip link set eth1 down
 ```
 
-#### Route tables
+### Route tables
 
 ```bash
 # show route tables
@@ -81,7 +81,7 @@ $ ip route add default via 192.168.50.100
 # configuration for eth-0
 $ cat /etc/sysconfig/network-scripts/ifcfg-eth0
 ```
-#### IP Tables
+### IP Tables
 ```bash
 PACKET IN
     |
@@ -113,7 +113,7 @@ $ sudo iptables -A OUTPUT -p tcp --sport 22 -m conntrack --ctstate ESTABLISHED -
 $ sudo iptables -A INPUT -p tcp -m multiport --dports 80,443 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
 $ sudo iptables -A OUTPUT -p tcp -m multiport --dports 80,443 -m conntrack --ctstate ESTABLISHED -j ACCEPT
 ```
-#### DNS
+### DNS
 
 ```bash
 # modify host file
@@ -124,7 +124,7 @@ $ cat /etc/resolv.conf
 $ echo "nameserver xxx.xxx.xxx.xxx" >> /etc/resolv.conf
 $ echo "nameserver 8.8.8.8" >> /etc/resolv.conf
 ```
-##### DNS debug
+#### DNS debug
 nslookup
 ```bash
 $ nslookup www.google.com
@@ -146,7 +146,7 @@ traceroute - Prints the n/w hop taken to resolve the dns. It figures it out by s
 ```
 $ traceroute www.google.com
 ```
-#### Namespaces
+### Namespaces
 
 ```bash
 # list all namespaces
@@ -164,7 +164,7 @@ $ ip netns exec red arp
 $ ip netns exec blue arp
 ```
 
-#### NAT
+### NAT
 - SNAT
 - DNAT
 - PAT
@@ -193,7 +193,7 @@ $ iptables save
 # iptables -A FORWARD -p tcp -d 192.168.1.2 --dport 8080 -j ACCEPT
 ```
 
-#### Setting up bridge network
+### Setting up bridge network
 
 Refer - https://ops.tips/blog/using-network-namespaces-and-bridge-to-isolate-servers/
 
