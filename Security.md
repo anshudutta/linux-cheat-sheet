@@ -89,9 +89,9 @@ session required pam_unix.so
   ```bash
   $ vim /etc/ssh/sshd_config
   # PermitRootLogin no
-  # sudo systemctl reload sshd
+  $ sudo systemctl reload sshd
   ```
 - Use one service account per service
 - Deny login, ssh from service accounts
-
+- Delete unused service account
 
