@@ -54,3 +54,19 @@ $ groupdel db
 # modify gpoupmod
 $ groupmod -g 1001 -n newname
 ```
+### Login
+```bash
+# lock account
+$ passwd -l accountname
+
+# unlock account
+$ passwd -u accountname
+
+# audit logs
+# last logins
+$ last
+# ladt unsuccessful logins
+$ lastb
+# last time user has logged in
+$ lostlog
+```
