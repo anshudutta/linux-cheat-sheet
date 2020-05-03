@@ -1,5 +1,6 @@
 ## User management
 
+### User
 ```
 # list users
 $ cat /etc/passwd
@@ -28,18 +29,22 @@ $ useradd -c "Apache Web Server" -d /opt/apache -r -s /usr/sbin/nologin apache
 $ userdel joe -r
 # modify using usermod
 $ usermod -c "new comment"
-
-# group
+```
+### Group
+```bash
 $ cat /etc/group
 # format --> group_name:password:GID:account1,accountN
+
 # list what groups an user belongs to
 $ groups root
+
 # create group sales
 $ groupadd sales
 $ groupadd -g 2500 db
+
 # delete group
 $ groupdel db
+
 # modify gpoupmod
 $ groupmod -g 1001 -n newname
-
 ```
