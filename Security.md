@@ -52,3 +52,33 @@ Using LUKS
 - Multiple passphrase support
 - Portable as LUKS stores setup information in partition header
 - Great for removable device
+
+## PAM
+Pluggable Authentication module
+```bash
+login ---> PAM --> /etc/passwd
+                   /etc/shadow
+```
+Location
+```bash
+$ ls -lah /etc/pam.d
+$ cat /etc/pam.d/login
+$ cat /etc/pam.d/sshd
+```
+Forrmat
+```bash
+module_interface control_flag module_name module_args
+
+module_interface --> auth (authentication), account(authorization), password (change password), session (manage session)
+control_flag --> required, requisite, sufficient, optional, include
+```
+Example
+```
+#% PAM-1.0
+auth required pam_securetty.so
+auth required pam_unix.so nullok
+auth required pam_nologin.so
+account required pam_unix.so
+password required pam_unix.so retry=3
+session required pam_unix.so
+```
