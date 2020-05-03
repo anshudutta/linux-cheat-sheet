@@ -20,15 +20,21 @@ $ cat /etc/shells
 
 # add user, -c comment, -m create home directory, -s shell path, -g primary group, -G other group
 $ useradd -c "Joe Bill" -m -s /bin/bash -g sales joe
+
 # assign password
 $ passwd joe
+
 # add service account
 # -r sys account (uid <1000), -d home directory overide (for sys account), -u specify uid
 $ useradd -c "Apache Web Server" -d /opt/apache -r -s /usr/sbin/nologin apache
+
 # delete account
 $ userdel joe -r
 # modify using usermod
 $ usermod -c "new comment"
+
+# switch account
+$ su - otheruser
 ```
 ### Group
 ```bash
