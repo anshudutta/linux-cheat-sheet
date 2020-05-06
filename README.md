@@ -344,63 +344,7 @@ change to command mode --> press ESC
 - ask confirm ---> <b>:%s/searchterm/replaceterm/gc</b>
 ```
 
-## Services
 
-Below is a simplified overview of the entire Linux boot and startup process:
-
-1. The system powers up. 1 The BIOS does minimal hardware initialization and hands over control to the boot loader.
-2. The boot loader calls the kernel.
-3. The kernel loads an initial RAM disk that loads the system drives and then looks for the root file system.
-4. Once the kernel is set up, it begins the systemd initialization system.
-5. systemd takes over and continues to mount the host’s file systems and start services.
-
-In systemd, the target of most actions are “units”, which are resources that systemd knows how to manage. Units are categorized by the type of resource they represent and they are defined with files known as unit files. The type of each unit can be inferred from the suffix on the end of the file.
-
-For service management tasks, the target unit will be service units, which have unit files with a suffix of .service. However, for most service management commands, you can actually leave off the .service suffix, as systemd is smart enough to know that you probably want to operate on a service when using service management commands.
-
-```bash
-# enable a service 
-$ systemctl enable application.service
-# disable a service
-$ sudo systemctl disable application.service
-
-# start a service
-$ systemctl start application.service
-# systemd knows to look for *.service files for service management commands
-$ systemctl start application
-# stop a service
-$ sudo systemctl stop application.service
-# restart a service
-$ sudo systemctl restart application.service
-# reload configuration
-$ sudo systemctl reload application.service
-
-# check service status
-$ systemctl status application.service
-$ systemctl is-active application.service
-$ systemctl is-enabled application.service
-$ systemctl is-failed application.service
-
-# list current units
-$ systemctl list-units
-# list all services
-$ systemctl list-units --type=service
-# list all unit files
-$ systemctl list-unit-files
-
-# Reload systemd manager configuration
-$ systemctl daemon-reload
-```
-Sample unit file
-```
-[Unit]
-Description=ATD daemon
-[Service]
-Type=forking
-ExecStart=/usr/bin/atd
-[Install]
-WantedBy=multi-user.target
-```
 ## Sysadmin
 
 ### Basic
@@ -488,38 +432,6 @@ $ df -h
 
 # show info on all block devices
 $ lsblk
-```
-### ssh
-```bash
-# generate ssh key pair
-$ ssh-keygen -C description@mail.com
-
-# add private key to known hosts using ssh agent
-$ ssh-add /path/to/private/key
-# add it manually
-$ echo $(cat private.key) >> ~/.ssh/known_hosts
-
-# add public key to authorozed hosts on remote server
-$ echo $( cat ~/.ssh/id_rsa.pub) >> ~/.ssh/authorized_keys
-
-# connect to remote host
-$ ssh -i /path/to/private/key user@ipaddress
-# using username
-$ ssh user@ipaddress
-
-# ssh configuration (set up config in ~/.ssh/conf.d/)
-$ echo "include ~/.ssh/conf.d/*.conf" >> ~/.ssh/config
-```
-### File copy
-```bash
-# scp --> secure file copy
-$ scp filename user@servername:/path/to/destination
-
-# sftp --> SSH file transfer protocol
-$ sftp user@servername
-$ lls 		# ls on (l)ocal, 
-$ put filename 	# copies file to server
-$ quit		quit
 ```
 ### Certificates
 Using Certificate Authority
