@@ -29,6 +29,17 @@ Configuration
 # ssh configuration (set up config in ~/.ssh/conf.d/)
 $ echo "include ~/.ssh/conf.d/*.conf" >> ~/.ssh/config
 ```
+Port Forward
+```
+# ssh -L remote-port:localhost:local-port user@remoteip
+$ ssh -L 1338:127.0.0.1:1338 anshu@192.168.231.145 -L 8000:127.0.0.1:8000 anshu@192.168.231.145
+```
+Reverse Port Forward
+```
+# Destination (192.168.20.55) <- |NAT| <- Source (138.47.99.99)
+$ ssh -R 19999:localhost:22 sourceuser@138.47.99.99 # run on the destination
+$ ssh localhost -p 19999 # run on local
+```
 ### File copy
 ```bash
 # scp --> secure file copy
