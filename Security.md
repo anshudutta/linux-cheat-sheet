@@ -95,3 +95,22 @@ session required pam_unix.so
 - Deny login, ssh from service accounts
 - Delete unused service account
 
+## Grant root priviledges
+Assign root user
+```bash
+$ visudo
+# bob ALL=(root) /usr/bin/yum --> user system=(sudo user) command
+# bob ALL=(ALL) ALL
+$ sudo -ll -U bob
+```
+List root priviledges
+```bash
+$ sudo -l
+$ sudo -l -U bob
+$ visudo -f /etc/etc/sudoers.d/bob
+# bob ALL=(ALL) /usr/bin/whoami --> grant bob priviledge to run commands as other users
+```
+Check audit trail
+```bash
+$ cat /var/log/secure
+```
