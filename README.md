@@ -194,53 +194,7 @@ $ less /var/logs/syslog
 # boot --> /var/logs/boot.log
 # cron --> /var/logs/cron
 ```
-### Disk Usage
 
-- To install an operating system on a hard drive, it must be subdidvided into dstict storage unit called partitions
-- Hard drives in linux are named as /dev/sda, /dev/sdb ..etc
-- Partitions in linux are named using numbers strating from 0. eg- sda1, sda2,..sda4 
-- A mount point is a directory used to access data on partition. Most commonly used mount points are /, /boot, /home/ etc
-- Partitioning schemes
-   - MBR
-   - GPT
-
-Hard Drive --> Partition --> Install File System --> Mount --> block Device
-
-```
-Partition	Type	Mount Point
-------------------------------------
-/dev/sda1	ext2	/
-/dev/sda2	ext2	/boot
-/dev/sda3	ext4	/user
-/dev/sda4	ext4	/home
-```
-
-```bash
-# commands --> fdisk, parted, gdisk
-# display a list of disks
-$ fdisk -l
-
-# creating a partition --> fdisk /path/to/disk and follow commands
-# choose p --> primary, 1 --> number, +1G for 1 GB in size, m--> help, w --> write
-$ fdisk /dev/sdb
-
-# creating a file system 
-# mkfs -t TYPE DEVICE
-$ mkfs -t ext4 /dev/sda1
-
-# mount the partition
-# mount DEVICE MOUNT_POINT
-$ mount /dev/sdb3 /opt
-# persist the change in /etc/fstab
-# unmount
-$ umount /opt
-
-# show the file system usage (disk free)
-$ df -h
-
-# show info on all block devices
-$ lsblk
-```
 ### Certificates
 Using Certificate Authority
 
