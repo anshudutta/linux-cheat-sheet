@@ -1,5 +1,18 @@
 ## Networking
 
+Ports
+```bash
+SSH		22
+HTTP/S		80/443
+FTP		20/21
+TELNET		23
+SMTP		25
+ICMP
+DNS		53
+DHCP		67/68
+RDP		3389
+```
+
 ```
 Object		Abbreviated form	Purpose
 -------		----------------	--------
@@ -81,6 +94,7 @@ $ ip route add default via 192.168.50.100
 # configuration for eth-0
 $ cat /etc/sysconfig/network-scripts/ifcfg-eth0
 ```
+
 ### IP Tables
 ```bash
 PACKET IN
