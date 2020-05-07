@@ -29,6 +29,27 @@ Configuration
 # ssh configuration (set up config in ~/.ssh/conf.d/)
 $ echo "include ~/.ssh/conf.d/*.conf" >> ~/.ssh/config
 ```
+Sample configuration
+```
+Host targaryen
+    HostName 192.168.1.10
+    User daenerys
+    Port 7654
+    IdentityFile ~/.ssh/targaryen.key
+
+Host martell
+    HostName 192.168.10.50
+
+Host *ell
+    user oberyn
+
+Host * !martell
+    LogLevel INFO
+
+Host *
+    User root
+    Compression yes
+```
 Port Forward
 ```
 # ssh -L remote-port:localhost:local-port user@remoteip
