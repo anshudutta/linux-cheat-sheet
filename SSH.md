@@ -26,6 +26,12 @@ $ ssh user@ipaddress
 ```
 Configuration
 ```
+# user home config
+$ cat ~/.ssh/config
+# global
+$ cat /etc/ssh_config
+# order console --> user --> global
+
 # ssh configuration (set up config in ~/.ssh/conf.d/)
 $ echo "include ~/.ssh/conf.d/*.conf" >> ~/.ssh/config
 ```
