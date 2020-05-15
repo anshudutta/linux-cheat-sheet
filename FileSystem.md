@@ -232,9 +232,18 @@ $ mount /dev/sdb3 /opt
 # unmount
 $ umount /opt
 
+```
+Disk Information
+```
 # show the file system usage (disk free)
 $ df -h
 
 # show info on all block devices
 $ lsblk
+
+# find all mount paths
+$ findmnt
+
+# find disk usage on a path
+$ du /path/to -h
 ```
