@@ -2,8 +2,7 @@
 
 ### OSI vs TCP/IP
 
-OSI		| TCP/IP
-------------------------------
+```
 Application	| (Communicationg with applications)
 -----------------
 Presentation	| (Encryption, compression)
@@ -18,7 +17,7 @@ DataLink	| (Dealing with MAC Addresses)
 ----------------- Network Access
 Physical	| (Physical transmission of Data)
 ------------------------------
-
+```
 ### Ports
 ```bash
 SSH		22
