@@ -1,6 +1,25 @@
 ## Networking
 
-Ports
+### OSI vs TCP/IP
+
+OSI		| TCP/IP
+------------------------------
+Application	| (Communicationg with applications)
+-----------------
+Presentation	| (Encryption, compression)
+----------------- Application
+Session		| (Create and maintain session)
+------------------------------
+Transport	| Transport (Choosing protocol TCP/ UDP)
+------------------------------
+Network		| Internet (Routing traffic over IP address)
+------------------------------
+DataLink	| (Dealing with MAC Addresses)
+----------------- Network Access
+Physical	| (Physical transmission of Data)
+------------------------------
+
+### Ports
 ```bash
 SSH		22
 HTTP/S		80/443
@@ -97,6 +116,10 @@ $ cat /etc/sysconfig/network-scripts/ifcfg-eth0
 
 ### DNS
 
+```
+Local Cache --> Router --> Recurssive DNS (by ISP) --> 
+ROOT Level Domain --> TOP Level Domain --> Authoritative NS --> A Record
+```
 ```bash
 # modify host file
 $ echo "xxx.xxx.xxx.xx server-name" >> /etc/hosts
